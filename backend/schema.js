@@ -14,9 +14,14 @@ const typeDefs = `
     addMessage(message: String!): [Message]
   }
 
+  type Subscription {
+    newMessageAdded: Message
+  }
+
   schema {
     query: Query
     mutation: Mutation
+    subscription: Subscription
   }
 `;
 
