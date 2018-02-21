@@ -4,7 +4,7 @@
   "description": "Backend for the tutorial",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon index.js"
   },
   "author": "John Crisostomo",
   "license": "MIT",
