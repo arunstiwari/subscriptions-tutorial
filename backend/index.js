@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
+const { execute, subscribe } = require('graphql');
+const { SubscriptionServer } = require('subscriptions-transport-ws');
 const { createServer } = require('http');
 
 const schema = require('./schema');
@@ -22,7 +24,8 @@ app.use(
 app.use(
   '/graphiql',
   graphiqlExpress({
-    endpointURL: '/graphql'
+    endpointURL: '/graphql',
+    subscriptionsEndpoint: 'ws://localhost:3030/subscriptions'
   })
 );
 
@@ -31,4 +34,15 @@ const PORT = process.env.PORT || 3030;
 const server = createServer(app);
 server.listen(PORT, () => {
   console.log(`Server now running at port ${PORT}`);
+  new SubscriptionServer(
+    {
+      execute,
+      subscribe,
+      schema
+    },
+    {
+      server,
+      path: '/subscriptions'
+    }
+  );
 });
