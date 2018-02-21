@@ -3,7 +3,7 @@ const resolvers = require('./resolvers');
 
 const typeDefs = `
   type Message {
-    payload: String
+    message: String
   }
 
   type Query {
@@ -11,7 +11,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    addMessage(payload: String!): [Message]
+    addMessage(message: String!): [Message]
   }
 
   schema {

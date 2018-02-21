@@ -7,8 +7,8 @@ const resolvers = {
     }
   },
   Mutation: {
-    addMessage(parentValue, { payload }) {
-      messages.push({ payload });
+    addMessage(parentValue, { message }) {
+      messages.push({ message });
       return messages;
     }
   }
