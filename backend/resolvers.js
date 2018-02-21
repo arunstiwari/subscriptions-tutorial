@@ -11,6 +11,15 @@ const resolvers = {
       messages.push({ message });
       return messages;
     }
+  },
+  Subscription: {
+    newMessageAdded: {
+      subscribe: () =>
+        withFilter(
+          () => pubsub.asyncIterator('newMessageAdded'),
+          (params, variables) => true
+        )
+    }
   }
 };
 
