@@ -4,7 +4,7 @@
   "description": "Backend for the tutorial",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js",
   },
   "author": "John Crisostomo",
   "license": "MIT",
@@ -17,5 +17,8 @@
     "graphql-subscriptions": "^0.5.7",
     "graphql-tools": "^2.21.0",
     "subscriptions-transport-ws": "^0.9.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.15.1"
   }
 }
