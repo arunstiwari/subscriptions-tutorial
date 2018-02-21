@@ -12,6 +12,11 @@ const resolvers = {
   Mutation: {
     addMessage(parentValue, { message }) {
       messages.push({ message });
+
+      pubsub.publish('newMessageAdded', {
+        newMessageAdded: { message }
+      });
+
       return messages;
     }
   },
