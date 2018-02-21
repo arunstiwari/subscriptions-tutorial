@@ -17,11 +17,10 @@ const resolvers = {
   },
   Subscription: {
     newMessageAdded: {
-      subscribe: () =>
-        withFilter(
-          () => pubsub.asyncIterator('newMessageAdded'),
-          (params, variables) => true
-        )
+      subscribe: withFilter(
+        () => pubsub.asyncIterator('newMessageAdded'),
+        (params, variables) => true
+      )
     }
   }
 };
