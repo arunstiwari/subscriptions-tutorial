@@ -1,3 +1,6 @@
+const { PubSub, withFilter } = require('graphql-subscriptions');
+const pubsub = new PubSub();
+
 const messages = [];
 
 const resolvers = {
